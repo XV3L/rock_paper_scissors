@@ -20,7 +20,6 @@ let computerScore = 0;
 // Determines the winner.
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt('Please choose either Rock, Paper, or Scissors.');
     let choice = playerSelection.toUpperCase();
     computerSelection = computerPlay();
     if (choice === 'ROCK') {
@@ -65,9 +64,9 @@ function playRound(playerSelection, computerSelection) {
 
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+    /*for (let i = 0; i < 5; i++) {
         console.log(playRound());
-    }
+    }*/
     if (playerScore > computerScore) {
         console.log(`You win! Your final score was ${playerScore} vs. the computers score of ${computerScore}.`);
     }   else if (computerScore > playerScore) {
@@ -77,3 +76,15 @@ function game() {
             console.log(`Tie! Your final score was ${playerScore} vs. the computers score of ${computerScore}.`)
         }
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const container = document.querySelector(".container");
+        const result = document.createElement("div");
+        result.classList.add("result");
+        result.textContent = playRound(button.className, computerPlay());
+        container.appendChild(result);
+    })
+});
