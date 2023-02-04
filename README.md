@@ -1,1 +1,1 @@
-# rock_paper_scissors
+Javascript project to practice syntax and fundamental problem-solving skills
